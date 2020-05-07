@@ -1,4 +1,5 @@
 from fastapi import APIRouter, HTTPException
+import asyncio
 router = APIRouter()
 
 
@@ -10,7 +11,6 @@ class SiteHandler:
         self._root = base_root
         self._loop = asyncio.get_event_loop()
 
-
-@router.get("/")
-async def index():
-    return {"index": "Hello"}
+    @router.get("/")
+    async def index():
+        return {"index": "Hello"}
